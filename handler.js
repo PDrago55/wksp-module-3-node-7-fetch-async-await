@@ -4,7 +4,7 @@ const { getGeekJoke } = require('./__workshop/2-promises-in-action/exercise-5');
 
 const handleJoke = async (req, res) => {
     const { type } = req.body;
-    let joke = '';
+    console.log(type)
     switch (type) {
         case 'geek':
             joke = await getGeekJoke();
@@ -14,10 +14,10 @@ const handleJoke = async (req, res) => {
             break;
         case 'dad':
         default:
-            joke = (await getDadJoke()).joke;
+            joke = (await getDadJoke());
             break;
     }
-
+    console.log(joke)
     res.status(200).json({data: joke});
 }
 

@@ -27,6 +27,16 @@ newPauseFunction(1)
 
 _let's convert it to async/await_
 
+const doIt = async () => {
+    await newPauseFunction(1);
+    await newPauseFunction(2);
+    await newPauseFunction(3);
+    await newPauseFunction(3);
+    //the async function waits until all 4 lines of code are completed before it gets console.log()
+    console.log('no more awaits');
+} 
+doIt()
+
 ---
 
 ### Exercise
@@ -44,8 +54,34 @@ transformText(string)
         return str;
     })
     .catch((err) => console.log(err));
-```
 
+const goForIt = async() => {
+    try {  
+        await allCaps(str)
+        await trimFirst(str)
+        await trimLast(str)
+        await replaceWithx(str)
+            console.log(str)}
+    catch (err) {
+            console.log('error')
+}
+goForIt()
+
+```
+// Scotts answer..
+
+const transformText = async(string) => {
+    try{
+    const str = await allCaps(str);
+    const nextString = await trimFirst(str);
+    const nextNextString = await trimLast(str);
+    const nextNextNextString = await replaceWithx(str);
+    console.log(str);
+    } catch (err) {
+        console.log('error')
+    }
+}
+transformText()
 ---
 
 ## Error Handling
